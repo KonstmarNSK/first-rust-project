@@ -5,11 +5,14 @@ fn index() -> impl Responder {
 }
 
 fn main() {
+    let ip_addr = std::env::args().nth(1).expect("no pattern given");
+    println!("Will bind to {}", ip_addr);
+
     HttpServer::new(|| {
         App::new()
             .route("/", web::get().to(index))
     })
-    .bind("127.0.0.1:8088")
+    .bind(ip_addr)
     .unwrap()
     .run()
     .unwrap();
