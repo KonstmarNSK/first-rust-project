@@ -8,3 +8,6 @@ edition = "2018"
 
 [dependencies]
 actix-web = "1.0"
+[dependencies.askama]
+version = "0.8.0"
+features = ["with-actix-web"]
